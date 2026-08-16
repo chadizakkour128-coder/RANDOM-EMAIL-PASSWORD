@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RANDOM PASSWORD</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            text-align: center;
+            color: green;
+            padding: 90px;
+            margin: 90px;
+            font-size: 30px;
+        }
+
+        button {
+            transition: 0.3s ease-in;
+            background-color: green;
+            border: 3px solid green;
+            box-shadow: 0px 0px 15px green, 0px 0px 15px inset;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        button:hover {
+            transform: scale(1.2);
+            background-color: rgba(173, 255, 50, 0.827);
+            border: 3px solid greenyellow;
+            box-shadow: 0px 0px 15px greenyellow, 0px 0px 15px inset;
+            font-size: 18px;
+        }
+
+        .h2 {
+            user-select: none;
+        }
+    </style>
+
+    <script>
+        function randomEmail() {
+            var pass = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$!.";
+            regex_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
+            var password = '';
+            for (var i = 0; i < 12; i++) {
+                var choix = Math.floor(Math.random() * pass.length);
+                password += pass[choix];
+            }
+            while (!regex_pass.test(password)) {
+                var password = '';
+                for (var i = 0; i < 12; i++) {
+                    var choix = Math.floor(Math.random() * pass.length);
+                    password += pass[choix];
+                }
+            } document.getElementById("ema").innerText = password+'@gamil.com';
+        }
+        function randomPassword() {
+            var pass = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$!.";
+            regex_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_/|?.-]).{12}$/;
+            var password = '';
+            for (var i = 0; i < 12; i++) {
+                var choix = Math.floor(Math.random() * pass.length);
+                password += pass[choix];
+            }
+            while (!regex_pass.test(password)) {
+                var password = '';
+                for (var i = 0; i < 12; i++) {
+                    var choix = Math.floor(Math.random() * pass.length); password += pass[choix];
+                }
+            } document.getElementById("pas").innerText = password;
+        } </script>
+
+</head>
+
+<body>
+    <audio loop hidden autoplay>
+        <source src="a.mp3">
+    </audio>
+    <h2 class="h2">RANDOM EMAIL</h2>
+    <h2 id="ema">************</h2>
+    <button onclick="randomEmail()">RANDOM EMAIL</button>
+    <h2 class="h2">RANDOM PASSWORD</h2>
+    <h2 id="pas">************</h2>
+    <button onclick="randomPassword()">RANDOM PASSWORD</button>
+    </div>
+</body>
+
+</html>
